@@ -11,7 +11,7 @@ best_choice = []
 invest = 0
 
 
-with open ("dataset_bruteforce.csv", 'r') as csvfile:
+with open ("dataset1_PythonP7.csv", 'r') as csvfile:
     """open the csv file and read it"""
     csv_reader = csv.reader(csvfile, delimiter=',')
     next(csv_reader, None)
@@ -22,13 +22,13 @@ with open ("dataset_bruteforce.csv", 'r') as csvfile:
         actions_profit.append(row[2])
 for action in actions_value:
     """transform the list of string into a list of integer"""
-    action = int(action)
+    action = float(action)
 for action in actions_profit:
     """transform the list of string into a list of integer"""
-    action = int(action)
+    action = float(action)
 for i in range(len(actions_name)):
     """create a list of dictionary with actions name, value and profit"""
-    list_of_actions_as_dict.append({"name": actions_name[i], "value": int(actions_value[i]), "profit": float(actions_profit[i])/100})
+    list_of_actions_as_dict.append({"name": actions_name[i], "value": float(actions_value[i]), "profit": float(actions_profit[i])/100})
 for i in range(len(list_of_actions_as_dict)):
     """calculate the sellable value of each action and add in the dictionary"""
     sellable_value = list_of_actions_as_dict[i]["value"] * (1+list_of_actions_as_dict[i]["profit"])
