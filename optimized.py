@@ -48,8 +48,8 @@ with open ("dataset2_Python+P7.csv", 'r') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=',')
     next(csv_reader, None)
     for row in csv_reader:
-        if float(row[1]) > float(0) and float(row[2]) > float(1):
-            """for each row in the csv file, add the name of the action in the list actions_name"""
+        if float(row[1]) > 0 and float(row[2]) > 1:
+            """for each row in the csv file, add the name, price and profit of the action in corresponding lists"""
             actions_name.append(row[0])
             row[1] = float(row[1])
             row[1] = row[1] * 100
@@ -64,11 +64,11 @@ with open ("dataset2_Python+P7.csv", 'r') as csvfile:
 for i in range(len(actions_name)):
     """create a list of dictionary with actions name, value and profit"""
     list_of_actions_as_dict.append({"name": actions_name[i], "value": actions_value[i], "profit": actions_profit[i], "sellable_value": actions_sellable_value[i]})
-    print(list_of_actions_as_dict[i])
 list_of_actions_to_buy = dynamic_function(wallet, list_of_actions_as_dict)
 wallet = wallet / 100
 
 for action in list_of_actions_to_buy:
+    """switch the value of the action to the real value and calculate the rentability, then print the result"""
     action["value"] = action["value"] / 100
     action["profit"] = action["profit"] / 100
     action["sellable_value"] = action["value"] * (1 + action["profit"]/100)
