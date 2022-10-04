@@ -1,5 +1,7 @@
 # ALGOINVEST&TRADE
 
+![ALGOINVEST](https://user-images.githubusercontent.com/97233634/193859031-a2270a36-abc1-4d6a-b395-f6d72b49bc50.jpg)
+
 This is my third Python project for Openclassrooms courses.
 
 In this scenario I have just joined AlgoInvest&Trade, a financial company. The company seeks to optimize its investment strategies using algorithms, in order to generate more profits for their customers.
