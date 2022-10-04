@@ -22,7 +22,8 @@ def dynamic_function(wallet, list_of_actions_as_dict):
             if int(list_of_actions_as_dict[i-1]['value']) <= w:
                 """if the value of the action is less than the wallet value"""
                 matrice[i][w] = max(int(list_of_actions_as_dict[i-1]["sellable_value"]) + matrice[i-1][w - int(list_of_actions_as_dict[i-1]['value'])], matrice[i-1][w])
-                """the value of the cell is the max between the sellable value of the action + the value of the cell in the same row but with the wallet value - the value of the action and the value of the cell in the row above"""
+                """the value of the cell is the max between the sellable value of the action + the value of the cell in the same row but with the wallet value - 
+                the value of the action and the value of the cell in the row above"""
             else:
                 """if the value of the action is more than the wallet value"""
                 matrice[i][w] = matrice[i-1][w]
@@ -43,7 +44,7 @@ def dynamic_function(wallet, list_of_actions_as_dict):
         n -= 1
     return list_of_actions_to_buy
 
-with open ("dataset2_Python+P7.csv", 'r') as csvfile:
+with open ("./DATASET/dataset2_Python+P7.csv", 'r') as csvfile:
     """open the csv file and read it"""
     csv_reader = csv.reader(csvfile, delimiter=',')
     next(csv_reader, None)
@@ -75,6 +76,7 @@ for action in list_of_actions_to_buy:
     wallet -= action["value"]
     rentability += action["sellable_value"] - action["value"]
     print(action, "wallet", 500-wallet, "rentability", rentability)
-
-
-
+    with open("dataset_2_optimized.csv", "a") as csvfile:
+        """write the result in a csv file"""
+        csv_writer = csv.writer(csvfile, delimiter=',')
+        csv_writer.writerow([action["name"], action["value"], action["profit"], action["sellable_value"], wallet])

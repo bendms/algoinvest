@@ -1,5 +1,7 @@
 import csv
 import itertools
+
+
 list_of_actions_as_dict = []
 actions_name = []
 actions_value = []
@@ -11,7 +13,7 @@ best_choice = []
 invest = 0
 
 
-with open ("dataset1_PythonP7.csv", 'r') as csvfile:
+with open ("./DATASET/dataset_bruteforce.csv", 'r') as csvfile:
     """open the csv file and read it"""
     csv_reader = csv.reader(csvfile, delimiter=',')
     next(csv_reader, None)
@@ -55,3 +57,13 @@ for actions in best_choice:
     
 print(invest)
 print(best_rentability)
+
+with open("bruteforce_result.csv", 'w') as csvfile:
+    """open a csv file to write the result"""
+    csv_writer = csv.writer(csvfile, delimiter=',')
+    csv_writer.writerow(["name", "value", "profit", "sellable_value"])
+    for action in best_choice:
+        """write the best choice in the csv file"""
+        csv_writer.writerow([action["name"], action["value"], action["profit"], action["sellable_value"]])
+    csv_writer.writerow(["total", invest, best_rentability, invest + best_rentability])
+
