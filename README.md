@@ -23,9 +23,7 @@ This script needs Python installed and some packages detailled in requirements.t
 Clone the repo with your terminal 
 
 ```
-```bash
   git clone https://github.com/bendms/algoinvest.git
-
 ```
     
 ## Configuration 
