@@ -33,18 +33,15 @@ Clone the repo with your terminal
 Go to the project directory
 
 ```
-```bash
   cd algoinvest/
 ```
 
 Run the script using Python commande in terminal from chess_tournament_manager folder :
 
 ```
-```bash
   python bruteforce.py 
 ```
 
 ```
-```bash
   python optimized.py 
 ```
